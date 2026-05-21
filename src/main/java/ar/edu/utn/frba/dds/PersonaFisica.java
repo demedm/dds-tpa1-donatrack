@@ -2,7 +2,7 @@ package ar.edu.utn.frba.dds;
 
 import java.time.LocalDate;
 
-public class PersonaFisica implements Persona{
+public class PersonaFisica implements Donante{
   public Mail mail;
   public String nombreCompleto;
   private int edad;
@@ -20,5 +20,7 @@ public class PersonaFisica implements Persona{
     edad = fechaActual.getYear() - fechaNacimiento.getYear();
     documentoIdentidad = documento;
   }
+
+  public void donar() {}
 
 }

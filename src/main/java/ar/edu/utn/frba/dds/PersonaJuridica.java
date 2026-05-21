@@ -3,7 +3,7 @@ package ar.edu.utn.frba.dds;
 import java.util.ArrayList;
 import java.util.List;
 
-public class PersonaJuridica extends Entidad implements Persona { //persona o donante?
+public class PersonaJuridica extends Entidad implements Donante { //persona o donante?
   PersonaFisica personaRepresentante;
   String rubro;
   String tipo;
@@ -14,5 +14,7 @@ public class PersonaJuridica extends Entidad implements Persona { //persona o do
     tipo = tipoEntidad; //ONG, Gubernamental, Empresa, Institucion
     rubro = rubroEntidad;
   }
+
+  public void donar() {}
 
 }
