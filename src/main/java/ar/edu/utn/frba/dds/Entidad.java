@@ -1,12 +1,21 @@
 package ar.edu.utn.frba.dds;
 
+import java.util.List;
+
 public class Entidad {
   public String razonSocial;
-  public String tipo;
+  public List<MedioContacto> mediosContacto;
+  public List<Mail> mailRepresentantes;
   // los strings son temporales hasta que definamos una forma mas prolija de definir
-  public Entidad(String razon, String tipoEntidad)
+  public Entidad(String razon, List<Mail> mailList)
   {
     razonSocial =  razon;
-    tipo = tipoEntidad;
+    mailRepresentantes = mailList;
   }
+
+  public void SetMedioContacto(List<MedioContacto> medioContactoList)
+  {
+    mediosContacto = medioContactoList;
+  }
+
 }

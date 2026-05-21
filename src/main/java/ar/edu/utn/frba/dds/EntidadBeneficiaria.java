@@ -3,11 +3,12 @@ package ar.edu.utn.frba.dds;
 import java.util.List;
 
 public class EntidadBeneficiaria extends Entidad{
-  List<MedioContacto> contactosRepresentantes;
+  String direccion;
 
-  public EntidadBeneficiaria(String razon, String tipoEntidad, List<MedioContacto> contactos) {
-    super(razon, tipoEntidad);
-    contactosRepresentantes = contactos;
+  public EntidadBeneficiaria(String razon, List<MedioContacto> telefonoOrganizacion, List<Mail> mailRepresentantes, String direccionEntidad){
+    super(razon, mailRepresentantes);
+    SetMedioContacto(telefonoOrganizacion);
+    direccion = direccionEntidad;
   }
 
 }

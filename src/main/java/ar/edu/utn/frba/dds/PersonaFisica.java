@@ -2,7 +2,7 @@ package ar.edu.utn.frba.dds;
 
 import java.time.LocalDate;
 
-public class PersonaFisica {
+public class PersonaFisica implements Persona{
   public Mail mail;
   public String nombreCompleto;
   private int edad;
