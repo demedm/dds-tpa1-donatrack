@@ -1,21 +1,15 @@
 package ar.edu.utn.frba.dds;
 
+import java.util.ArrayList;
 import java.util.List;
 
-public class Entidad {
-  public String razonSocial;
-  public List<MedioContacto> mediosContacto;
-  public List<Mail> mailRepresentantes;
+public interface Entidad {
+  public String razonSocial = "";
+  public List<Mail> mailRepresentantes = new ArrayList<>();
+  public List<MedioContacto> mediosContacto = new ArrayList<>();
 
   // los strings son temporales hasta que definamos una forma mas prolija de definir
 
-  public Entidad(String razon, List<Mail> mailList) {
-    razonSocial = razon;
-    mailRepresentantes = mailList;
-  }
-
-  public void setMedioContacto(List<MedioContacto> medioContactoList) {
-    mediosContacto = medioContactoList;
-  }
+  public void setMedioContacto(MedioContacto medioContactoList);
 
 }

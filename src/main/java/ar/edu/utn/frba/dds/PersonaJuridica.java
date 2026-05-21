@@ -1,19 +1,31 @@
 package ar.edu.utn.frba.dds;
 
-import java.util.ArrayList;
-import java.util.List;
-
-public class PersonaJuridica extends Entidad implements Donante { //persona o donante?
+public class PersonaJuridica extends Donante implements Entidad { //persona o donante?
   PersonaFisica personaRepresentante;
   String rubro;
   String tipo;
 
-  public PersonaJuridica(String razon, String tipoEntidad, String rubroEntidad,
-                         PersonaFisica representante, List<Mail> mailRepresentante) {
-    super(razon, mailRepresentante);
+  public PersonaJuridica(String razon, PersonaFisica representante) {
+    razonSocial.copyValueOf(razon.toCharArray());
     personaRepresentante = representante;
-    tipo = tipoEntidad; //ONG, Gubernamental, Empresa, Institucion
-    rubro = rubroEntidad;
+    mailRepresentantes.add(representante.mail);
+    tipo = getTipoEntidad(razon); //ONG, Gubernamental, Empresa, Institucion
+  }
+
+  public void setRubro(String rubroEntidad) {
+    rubro = rubroEntidad.toUpperCase();
+  }
+
+  public void setPersonaRepresentante(PersonaFisica representante) {
+    personaRepresentante = representante;
+  }
+
+  public void setMedioContacto(MedioContacto contacto) {
+    mediosContacto.add(contacto);
+  }
+
+  public String getTipoEntidad(String nombreEntidad) {
+    return "";
   }
 
   public void donar() {}
