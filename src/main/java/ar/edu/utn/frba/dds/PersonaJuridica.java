@@ -8,7 +8,8 @@ public class PersonaJuridica extends Entidad implements Donante { //persona o do
   String rubro;
   String tipo;
 
-  public PersonaJuridica(String razon, String tipoEntidad, String rubroEntidad, PersonaFisica representante, List<Mail> mailRepresentante) {
+  public PersonaJuridica(String razon, String tipoEntidad, String rubroEntidad,
+                         PersonaFisica representante, List<Mail> mailRepresentante) {
     super(razon, mailRepresentante);
     personaRepresentante = representante;
     tipo = tipoEntidad; //ONG, Gubernamental, Empresa, Institucion
