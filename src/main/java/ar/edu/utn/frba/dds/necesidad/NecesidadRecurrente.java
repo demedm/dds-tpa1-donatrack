@@ -1,4 +1,4 @@
-package ar.edu.utn.frba.dds;
+package ar.edu.utn.frba.dds.necesidad;
 
 public class NecesidadRecurrente extends Necesidad {
   public int diasAvencer;

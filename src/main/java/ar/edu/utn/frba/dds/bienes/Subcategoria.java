@@ -1,4 +1,4 @@
-package ar.edu.utn.frba.dds.Bienes;
+package ar.edu.utn.frba.dds.bienes;
 
 import java.util.Objects;
 
@@ -7,7 +7,9 @@ public class Subcategoria {
 
   @Override
   public boolean equals(Object o) {
-    if (o == null || getClass() != o.getClass()) return false;
+    if (o == null || getClass() != o.getClass()) {
+      return false;
+    }
     Subcategoria that = (Subcategoria) o;
     return Objects.equals(nombre, that.nombre);
   }
@@ -16,4 +18,5 @@ public class Subcategoria {
   public int hashCode() {
     return Objects.hashCode(nombre);
   }
+
 }

@@ -1,6 +1,11 @@
 package ar.edu.utn.frba.dds;
 
-
+import ar.edu.utn.frba.dds.donantes.Donante;
+import ar.edu.utn.frba.dds.donantes.PersonaFisica;
+import ar.edu.utn.frba.dds.donantes.PersonaJuridica;
+import ar.edu.utn.frba.dds.medioscontacto.Mail;
+import ar.edu.utn.frba.dds.medioscontacto.MedioContacto;
+import ar.edu.utn.frba.dds.medioscontacto.Telefono;
 import java.io.BufferedReader;
 import java.io.FileInputStream;
 import java.io.IOException;
@@ -18,10 +23,10 @@ public class ImporterDonantes {
     boolean actualizado = false;
     for (Donante donante : nuevosDonantes) {
       for (Donante posibleDesactualizado : registroDonantesActualizar) {
-        if (Objects.equals(posibleDesactualizado.getMailContacto().direccionMail,
-            donante.getMailContacto().direccionMail)) {
+        if (Objects.equals(posibleDesactualizado.getMailContacto().getMedioContacto(),
+            donante.getMailContacto().getMedioContacto())) {
           actualizado = posibleDesactualizado.actualizarInfo(donante.getNombre(),
-              donante.getDocumento().nroDocumento, donante.getMailContacto());
+              donante.getDocumento().getNroDocumento(), donante.getMailContacto());
         }
       }
       if (actualizado) {

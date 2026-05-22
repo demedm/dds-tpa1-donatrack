@@ -1,10 +1,9 @@
-package ar.edu.utn.frba.dds.Bienes;
+package ar.edu.utn.frba.dds.bienes;
 
 import java.util.Date;
 import java.util.stream.Stream;
 
-public
-class Perecedero implements Caracteristica {
+public class Perecedero implements Caracteristica {
   private Date fechaDeVencimiento;
 
   public Perecedero(Date fechaDeVencimiento) {
@@ -14,8 +13,9 @@ class Perecedero implements Caracteristica {
   @Override
   public boolean coincideCon(Caracteristica caracteristica) {
     return Stream.of(caracteristica)
-        .filter(c->c.getClass().equals(Perecedero.class))
-        .map(c->(Perecedero) c)
+        .filter(c -> c.getClass().equals(Perecedero.class))
+        .map(c -> (Perecedero) c)
         .anyMatch(p -> p.fechaDeVencimiento.equals(this.fechaDeVencimiento));
   }
+
 }

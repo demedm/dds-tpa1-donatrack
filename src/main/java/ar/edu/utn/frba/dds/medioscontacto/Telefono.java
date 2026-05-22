@@ -1,4 +1,4 @@
-package ar.edu.utn.frba.dds;
+package ar.edu.utn.frba.dds.medioscontacto;
 
 public class Telefono implements MedioContacto {
   public String nroTelefono;

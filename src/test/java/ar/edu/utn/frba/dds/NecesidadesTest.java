@@ -1,5 +1,8 @@
 package ar.edu.utn.frba.dds;
 
+import ar.edu.utn.frba.dds.necesidad.Necesidad;
+import ar.edu.utn.frba.dds.necesidad.GestorNecesidades;
+import ar.edu.utn.frba.dds.necesidad.NecesidadRecurrente;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 

@@ -1,4 +1,4 @@
-package ar.edu.utn.frba.dds;
+package ar.edu.utn.frba.dds.donantes;
 
 public enum Genero {
   MUJER,

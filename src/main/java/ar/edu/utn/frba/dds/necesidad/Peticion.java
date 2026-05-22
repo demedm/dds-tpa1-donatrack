@@ -1,4 +1,4 @@
-package ar.edu.utn.frba.dds;
+package ar.edu.utn.frba.dds.necesidad;
 
 public class Peticion {
   private String subclase;

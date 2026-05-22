@@ -1,4 +1,4 @@
-package ar.edu.utn.frba.dds.Bienes;
+package ar.edu.utn.frba.dds.bienes;
 
 import java.util.stream.Stream;
 
@@ -8,11 +8,12 @@ public class Estado implements Caracteristica {
   public Estado(EstadoUso estado) {
     this.estado = estado;
   }
+
   @Override
   public boolean coincideCon(Caracteristica caracteristica) {
     return Stream.of(caracteristica)
-        .filter(c->c.getClass().equals(Estado.class))
-        .map(c->(Estado) c)
+        .filter(c -> c.getClass().equals(Estado.class))
+        .map(c -> (Estado) c)
         .anyMatch(e -> e.estado.equals(this.estado));
   }
 

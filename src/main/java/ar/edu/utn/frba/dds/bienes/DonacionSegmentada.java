@@ -1,4 +1,4 @@
-package ar.edu.utn.frba.dds.Bienes;
+package ar.edu.utn.frba.dds.bienes;
 
 import java.util.List;
 
@@ -7,7 +7,8 @@ public class DonacionSegmentada {
   private List<Bien> bienesFiltrados;
   private EstadoDonacion estado;
 
-  public DonacionSegmentada(Subcategoria subcategoria, List<Bien> bienesFiltrados, EstadoDonacion estado) {
+  public DonacionSegmentada(Subcategoria subcategoria,
+                            List<Bien> bienesFiltrados, EstadoDonacion estado) {
     this.subcategoria = subcategoria;
     this.bienesFiltrados = bienesFiltrados;
     this.estado = EstadoDonacion.EN_DEPOSITO;
@@ -20,4 +21,5 @@ public class DonacionSegmentada {
   public void agregarBien(Bien bien) {
     this.bienesFiltrados.add(bien);
   }
+
 }

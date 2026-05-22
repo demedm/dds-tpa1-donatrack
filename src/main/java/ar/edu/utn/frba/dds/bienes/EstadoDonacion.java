@@ -1,4 +1,4 @@
-package ar.edu.utn.frba.dds.Bienes;
+package ar.edu.utn.frba.dds.bienes;
 
 enum EstadoDonacion {
   EN_DEPOSITO,

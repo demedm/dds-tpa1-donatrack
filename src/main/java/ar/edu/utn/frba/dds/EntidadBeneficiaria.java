@@ -1,5 +1,7 @@
 package ar.edu.utn.frba.dds;
 
+import ar.edu.utn.frba.dds.medioscontacto.Mail;
+import ar.edu.utn.frba.dds.medioscontacto.MedioContacto;
 import java.util.List;
 
 public class EntidadBeneficiaria extends Entidad {

@@ -1,5 +1,8 @@
 package ar.edu.utn.frba.dds;
 
+import ar.edu.utn.frba.dds.medioscontacto.Mail;
+import ar.edu.utn.frba.dds.medioscontacto.MedioContacto;
+import ar.edu.utn.frba.dds.medioscontacto.Telefono;
 import java.util.ArrayList;
 import java.util.List;
 

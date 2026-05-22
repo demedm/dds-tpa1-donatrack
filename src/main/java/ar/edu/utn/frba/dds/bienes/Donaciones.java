@@ -1,4 +1,4 @@
-package ar.edu.utn.frba.dds.Bienes;
+package ar.edu.utn.frba.dds.bienes;
 
 import java.util.List;
 
@@ -11,7 +11,8 @@ public class Donaciones {
     return this.todaDonaciones.stream()
         .flatMap(donacion -> donacion.getContenido().stream())
         .filter(bien -> bien.getSubcategoria().equals(subcategoria))
-        .filter(bien-> bien.getCaracteristica().coincideCon(criterio))
+        .filter(bien -> bien.getCaracteristica().coincideCon(criterio))
         .toList();
   }
+
 }

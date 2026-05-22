@@ -1,7 +1,6 @@
-package ar.edu.utn.frba.dds.Bienes;
+package ar.edu.utn.frba.dds.bienes;
 
-import ar.edu.utn.frba.dds.Donante;
-
+import ar.edu.utn.frba.dds.donantes.Donante;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -28,4 +27,5 @@ public class Donacion {
   public List<Bien> getContenido() {
     return bienes;
   }
+
 }
