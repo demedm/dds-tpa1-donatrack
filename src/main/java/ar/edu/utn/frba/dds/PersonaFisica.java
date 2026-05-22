@@ -8,7 +8,8 @@ public class PersonaFisica implements Donante {
   private int edad;
   private String genero;
   public String direccionActual;
-  private String documentoIdentidad;  // algo mejor que esta forma
+  private String documentoIdentidad;
+  private String DestinatarioSegunPreferencia; // algo mejor que esta forma
 
   public PersonaFisica(Mail email, String nombre, String apellido, LocalDate fechaNacimiento,
                        String documento, String gen, String direccion) {

@@ -5,6 +5,7 @@ import java.util.List;
 public class Entidad {
   public String razonSocial;
   public List<MedioContacto> mediosContacto;
+  public MedioContacto contactoParaNotificaciones;
   public List<Mail> mailRepresentantes;
 
   // los strings son temporales hasta que definamos una forma mas prolija de definir

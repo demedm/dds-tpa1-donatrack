@@ -2,6 +2,6 @@ package ar.edu.utn.frba.dds;
 
 public interface MedioContacto {
 
-  public void contactar();
+  void contactar(Notificacion notificacion);
 
 }
