@@ -2,6 +2,9 @@ package ar.edu.utn.frba.dds;
 
 import ar.edu.utn.frba.dds.medioscontacto.Mail;
 import ar.edu.utn.frba.dds.medioscontacto.MedioContacto;
+import ar.edu.utn.frba.dds.necesidad.GestorNecesidades;
+import ar.edu.utn.frba.dds.necesidad.Necesidad;
+
 import java.util.List;
 
 public class EntidadBeneficiaria extends Entidad {
@@ -26,15 +29,16 @@ public class EntidadBeneficiaria extends Entidad {
   public String getDireccion() {
     return direccion;
   }
-  
-  public void crearNecesidad(GestorNecesidades gestor, Integer diasAvencer){
-    Necesidad necesidad = new NecesidadRecurrente(this, diasAvencer);
-    gestor.agregarNecesidad(necesidad);
-  }
 
-  public void crearNecesidad(GestorNecesidades gestor){
+  public Necesidad crearNecesidad(GestorNecesidades gestor) {
     Necesidad necesidad = new Necesidad(this);
     gestor.agregarNecesidad(necesidad);
+    return necesidad;
+  }
+  public Necesidad crearNecesidad(GestorNecesidades gestor){
+    Necesidad necesidad = new Necesidad(this);
+    gestor.agregarNecesidad(necesidad);
+    return necesidad;
   }
 
 }

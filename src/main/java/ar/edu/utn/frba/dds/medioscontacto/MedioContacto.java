@@ -1,9 +1,11 @@
 package ar.edu.utn.frba.dds.medioscontacto;
 
+import ar.edu.utn.frba.dds.Notificacion;
+
 public interface MedioContacto {
 
   public String getMedioContacto();
 
-  public void contactar();
+  boolean contactar(Notificacion notificacion);
 
 }

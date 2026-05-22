@@ -1,6 +1,6 @@
 package ar.edu.utn.frba.dds.bienes;
 
-enum EstadoDonacion {
+public enum EstadoDonacion {
   EN_DEPOSITO,
   ASIGNACION_REALIZADA,
   LISTA_PARA_ENTREGAR,

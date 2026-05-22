@@ -1,7 +1,6 @@
 package ar.edu.utn.frba.dds;
 
 import static org.junit.jupiter.api.Assertions.*;
-
 import ar.edu.utn.frba.dds.donantes.Donante;
 import ar.edu.utn.frba.dds.donantes.PersonaFisica;
 import ar.edu.utn.frba.dds.donantes.PersonaJuridica;
@@ -9,7 +8,6 @@ import ar.edu.utn.frba.dds.medioscontacto.Mail;
 import ar.edu.utn.frba.dds.medioscontacto.MedioContacto;
 import ar.edu.utn.frba.dds.medioscontacto.Telefono;
 import org.junit.jupiter.api.Test;
-
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;

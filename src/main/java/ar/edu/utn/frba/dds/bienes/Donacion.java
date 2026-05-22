@@ -13,7 +13,7 @@ public class Donacion {
   public Donacion(String descripcionGeneral, Donante donante, List<Bien> bienes) {
     this.descripcionGeneral = descripcionGeneral;
     this.donante = donante;
-    this.bienes = new ArrayList<Bien>();
+    this.bienes = bienes;
   }
 
   public void agregarBien(Bien bien) {

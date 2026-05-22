@@ -1,5 +1,7 @@
 package ar.edu.utn.frba.dds.medioscontacto;
 
+import ar.edu.utn.frba.dds.Notificacion;
+
 public class Telefono implements MedioContacto {
   public String nroTelefono;
 
@@ -13,8 +15,8 @@ public class Telefono implements MedioContacto {
   }
 
   @Override
-  public void contactar() {
-
+  public boolean contactar(Notificacion notificacion) {
+    return true;
   }
 
 }
