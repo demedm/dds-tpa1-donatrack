@@ -3,16 +3,25 @@ package ar.edu.utn.frba.dds;
 import java.util.List;
 
 public class EntidadBeneficiaria extends Entidad {
-  String direccion;
-  String tipo;
+  List<MedioContacto> contactosRepresentantes;
 
   public EntidadBeneficiaria(String razon, String tipoEntidad,
-                             List<MedioContacto> telefonoOrganizacion,
-                             List<Mail> mailRepresentantes, String direccionEntidad) {
-    super(razon, mailRepresentantes);
+                             MedioContacto telefonoOrganizacion,
+                             List<Mail> contactoRepresentantes, String direccionEntidad) {
+    for (Mail mail : contactoRepresentantes) {
+      mailRepresentantes.add(mail);
+    }
     setMedioContacto(telefonoOrganizacion);
     direccion = direccionEntidad;
     tipo = tipoEntidad; //escuelas rurales, comedores, espacios de tutoría de niños, entre otros
+  }
+
+  public String getTipoEntidad() {
+    return tipo;
+  }
+
+  public String getDireccion() {
+    return direccion;
   }
 
 }

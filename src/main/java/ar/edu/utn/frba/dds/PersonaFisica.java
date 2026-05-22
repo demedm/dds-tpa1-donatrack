@@ -1,24 +1,84 @@
 package ar.edu.utn.frba.dds;
 
 import java.time.LocalDate;
+import java.util.Objects;
 
 public class PersonaFisica implements Donante {
   public Mail mail;
-  public String nombreCompleto;
+  public String nombre;
+  public String apellido;
   private int edad;
-  private String genero;
+  private Genero genero;
+  public Telefono telefonoContacto;
   public String direccionActual;
-  private String documentoIdentidad;  // algo mejor que esta forma
+  public Identificacion documentoIdentidad = null;  // algo mejor que esta forma
 
-  public PersonaFisica(Mail email, String nombre, String apellido, LocalDate fechaNacimiento,
-                       String documento, String gen, String direccion) {
+  public PersonaFisica(Mail email, String nombrePersona, String apellidoPersona,
+                       String documento, MedioContacto telefono) {
     mail = email;
-    nombreCompleto = nombre + " " + apellido;
-    genero = gen; // buscar forma de definir solo: hombre, mujer, otro
-    direccionActual = direccion;
+    nombre = nombrePersona;
+    apellido = apellidoPersona;
+    documentoIdentidad = new Identificacion(TipoDocumento.DNI, documento);
+    telefonoContacto = new Telefono(telefono.getMedioContacto());
+  }
+
+  public void setEdad(LocalDate fechaNacimiento) {
     LocalDate fechaActual = LocalDate.now();
     edad = fechaActual.getYear() - fechaNacimiento.getYear();
-    documentoIdentidad = documento;
+  }
+
+  public void setGenero(String gen) {
+    var gender = gen.toUpperCase();
+    if (gen.contains("HOMBRE")) {
+      genero = Genero.HOMBRE;
+      return;
+    }
+    if (gen.contains("MUJER")) {
+      genero = Genero.MUJER;
+    }
+    genero = Genero.OTRO;
+  }
+
+  public void setDireccion(String direccion) {
+    direccionActual = direccion.toUpperCase();
+  }
+
+  @Override
+  public String getNombre() {
+    return nombre + " " + apellido;
+  }
+
+  @Override
+  public Mail getMailContacto() {
+    return mail;
+  }
+
+  @Override
+  public boolean actualizarInfo(String name, String documento, MedioContacto telefono) {
+    boolean actualizado = false;
+    if (!(Objects.equals(nombre, name))) {
+      nombre = name;
+      actualizado = true;
+    }
+    if (!(Objects.equals(documentoIdentidad.nroDocumento, documento))) {
+      documentoIdentidad.nroDocumento = documento;
+      actualizado = true;
+    }
+    if (!(Objects.equals(telefonoContacto.nroTelefono, telefono.getMedioContacto()))) {
+      telefonoContacto.nroTelefono = telefonoContacto.getMedioContacto();
+      actualizado = true;
+    }
+    return actualizado;
+  }
+
+  @Override
+  public Identificacion getDocumento() {
+    return documentoIdentidad;
+  }
+
+  @Override
+  public Telefono getTelefonoContacto() {
+    return telefonoContacto;
   }
 
   public void donar() {}
