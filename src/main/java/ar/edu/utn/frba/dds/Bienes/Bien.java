@@ -1,29 +1,23 @@
 package ar.edu.utn.frba.dds.Bienes;
 
-public class Bien {
+public abstract class  Bien {
   private String Descripcion;
   private String Foto;
-  private Subcategoria subcategoria;
+  private Subcategoria subCategoria;
   private Integer cantidad;
 
-  private Caracteristica caracteristica;
-
-  public Bien(String descripcion, String foto, Subcategoria subcategoria, Integer cantidad, Caracteristica caracteristica) {
-    Descripcion = descripcion;
-    Foto = foto;
-    this.subcategoria = subcategoria;
+  public Bien(Subcategoria subCategoria, Integer cantidad, String foto, String descripcion) {
+    this.subCategoria = subCategoria;
     this.cantidad = cantidad;
-    this.caracteristica = caracteristica;
+    Foto = foto;
+    Descripcion = descripcion;
   }
 
-  public Subcategoria getSubcategoria() {
-    return this.subcategoria;
-  }
+  public abstract Object getCriterioSegmentacion();
 
-  public Caracteristica getCaracteristica() {
-    return this.caracteristica;
+  public Criterio getClaveAgrupacion() {
+    return new Criterio(this.subCategoria, this.getCriterioSegmentacion());
   }
-
 }
 
 

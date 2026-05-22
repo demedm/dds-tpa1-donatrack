@@ -2,30 +2,33 @@ package ar.edu.utn.frba.dds.Bienes;
 
 import ar.edu.utn.frba.dds.Donante;
 
-import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
+import java.util.stream.Collectors;
 
 
 public class Donacion {
   private String descripcionGeneral;
-  private List<Bien> bienes;
+  private List<DonacionSegmentada> donacionesSegmentadas;
   private Donante donante;
 
-  public Donacion(String descripcionGeneral, Donante donante, List<Bien> bienes) {
+  public Donacion(String descripcionGeneral, List<Bien> bienes, Donante donante) {
     this.descripcionGeneral = descripcionGeneral;
+    this.donacionesSegmentadas = this.segmentar(bienes);
     this.donante = donante;
-    this.bienes = new ArrayList<Bien>();
   }
 
-  public void agregarBien(Bien bien) {
-    this.bienes.add(bien);
+  private List<DonacionSegmentada> segmentar(List<Bien> bienes) {
+    Map<Criterio, List<Bien>> agrupados = bienes.stream()
+        .collect(Collectors.groupingBy(Bien::getClaveAgrupacion));
+
+    return agrupados.entrySet().stream()
+        .map(entry -> new DonacionSegmentada(
+            entry.getValue().size(), //
+            entry.getKey().subcategoria(),
+            entry.getValue()
+        ))
+        .collect(Collectors.toList());
   }
 
-  /**
-   * Devuele bienes.
-   */
-
-  public List<Bien> getContenido() {
-    return bienes;
-  }
 }
