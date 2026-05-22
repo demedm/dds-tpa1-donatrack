@@ -6,6 +6,10 @@ import java.util.List;
 public class GestorNecesidades {
   public List<Necesidad> necesidades = new ArrayList<>();
 
+  public void agregarNecesidad(Necesidad necesidad) {
+    necesidades.add(necesidad);
+  }
+
   public void evaluarPeticionesRecurrentes(GestorDonaciones gestor) {
     //Ordena a las que son recurrentes por cuantos dias le queden apra vencer
     necesidades.stream()

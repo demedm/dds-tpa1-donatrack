@@ -1,11 +1,16 @@
 package ar.edu.utn.frba.dds.necesidad;
 
+import ar.edu.utn.frba.dds.EntidadBeneficiaria;
+import ar.edu.utn.frba.dds.bienes.EstadoDonacion;
+
 import java.util.ArrayList;
 import java.util.List;
 
 public class Necesidad {
   private String estado = "preparacion";
+  private EntidadBeneficiaria entidad;
   public List<Peticion> peticiones = new ArrayList<>();
+
 
   public Necesidad(EntidadBeneficiaria entidad){
     this.entidad=entidad;
@@ -43,18 +48,35 @@ public class Necesidad {
 
 
   public void cumplirNecesidades(GestorDonaciones gestorDonaciones) {
-    int i = 0;
-    while (i < peticiones.size()) {
-      String subclase = peticiones.get(i).getSubclase();
-      int cantidad = peticiones.get(i).getCantidad();
-      int nuevaCantidad = gestorDonaciones.buscarProducto(subclase, cantidad);
-      peticiones.get(i).setCantidad(nuevaCantidad);
-      i++;
+    for (Peticion peticion : peticiones){
+      ResultadoBusqueda resultado = gestorDonaciones.buscarProducto(
+          peticion.getSubclase(),peticion.getCantidad()
+      );
+      peticion.setCantidad(resultado.getRestante());
+      peticion.agregarBienesAsignados(resultado.getBienesAsignados())
     }
-    //Va revisando si ya no queda nada mas qeu pedir en cada una
-    boolean todasCubiertas = peticiones.stream().allMatch(p -> p.getCantidad() == 0);
-    if (todasCubiertas) {
-      this.pedidoListo();
-    }
+    boolean todasCubiertas = peticiones.stream().allMatch(p->p.getCantidad()==0);
+    if (todasCubiertas) this.pedidoListo();
+  }
+  public void marcarListaParaEntregar() {
+    peticiones.forEach(p ->
+        p.getBienesAsignados().forEach(b ->
+            b.setEstado(EstadoDonacion.LISTA_PARA_ENTREGAR)
+        )
+    );
+  }
+  public void marcarEnTraslado() {
+    peticiones.forEach(p ->
+        p.getBienesAsignados().forEach(b -> b.setEstado(EstadoDonacion.EN_TRASLADO)
+        )
+    );
+  }
+
+  public void marcarEntregaFallida() {
+    peticiones.forEach(p ->
+        p.getBienesAsignados().forEach(b ->
+            b.setEstado(EstadoDonacion.ENTREGA_FALLIDA)
+        )
+    );
   }
 }

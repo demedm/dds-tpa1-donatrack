@@ -86,10 +86,9 @@ public class PersonaFisica implements Donante {
   }
 
   @Override
-  public void donar(String descripcion, String pathFoto, List<Bien> bienes) {
-    Bien nuevoBien = bienes;
+  public void donar(String descripcion, List<Bien> bienes, GestorDonaciones gestor) {
     Donacion nuevaDonacion = new Donacion(descripcion, this, bienes);
-    GestorDonaciones.agregarDonacion(nuevaDonacion);
+    gestor.agregarDonacion(nuevaDonacion);
   }
 
 }

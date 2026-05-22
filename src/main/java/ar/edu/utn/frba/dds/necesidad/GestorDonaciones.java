@@ -1,7 +1,34 @@
 package ar.edu.utn.frba.dds.necesidad;
 
+import ar.edu.utn.frba.dds.bienes.Bien;
+import ar.edu.utn.frba.dds.bienes.Donacion;
+
+import java.util.ArrayList;
+import java.util.List;
+import java.util.stream.Collectors;
+
 public class GestorDonaciones {
-  public int buscarProducto(String subclase, int cantidad) {
-    return 0;
+  public List<Donacion> donaciones = new ArrayList<>();
+
+  public void agregarDonacion(Donacion donacion){
+    donaciones.add(donacion);
+  }
+
+  public  ResultadoBusqueda buscarProducto(String subcategoria, int cantidad){
+    List<Bien> bienesFiltrrados = donaciones.stream()
+        .flatMap(d->d.getBienes().stream())
+        .filter(b->b.getSubcategoria().equals(subcategoria))
+        .collect(Collectors.toList());
+    List<Bien> bienesAsignados = new ArrayList<>();
+    int restante = cantidad;
+    for (Bien bien : bienesFiltrrados) {
+      if (restante == 0) break;
+      int aRestar = Math.min(bien.getCantidad(), restante);
+      bien.copia(aRestar, EstadoDonacion.ASIGNACION_REALIZADA);
+      bien.setCantidad(bien.getCantidad() - aRestar);
+      restante -= aRestar;
+    }
+    return new ResultadoBusqueda(restante,bienesAsignados);
   }
 }
+
