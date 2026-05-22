@@ -8,8 +8,27 @@ import java.io.InputStreamReader;
 import java.nio.charset.StandardCharsets;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 
 public class ImporterDonantes {
+
+  // info basica de contacto: documento, nombre, email, telefono
+  public static void actualizarDonantes(List<Donante> registroDonantesActualizar, String filePath) {
+    List<Donante> nuevosDonantes = importarDonantes(filePath);
+    boolean actualizado = false;
+    for (Donante donante : nuevosDonantes) {
+      for (Donante posibleDesactualizado : registroDonantesActualizar) {
+        if (Objects.equals(posibleDesactualizado.getMailContacto().direccionMail,
+            donante.getMailContacto().direccionMail)) {
+          actualizado = posibleDesactualizado.actualizarInfo(donante.getNombre(),
+              donante.getDocumento().nroDocumento, donante.getMailContacto());
+        }
+      }
+      if (actualizado) {
+        registroDonantesActualizar.add(donante);
+      }
+    }
+  }
 
   public static List<Donante> importarDonantes(String filePath) {
     String fpath = filePath;
@@ -36,7 +55,9 @@ public class ImporterDonantes {
       throw new RuntimeException(e);
     } finally {
       try {
-        reader.close();
+        if (reader != null) {
+          reader.close();
+        }
       } catch (IOException e) {
         throw new RuntimeException(e);
       }
@@ -52,13 +73,15 @@ public class ImporterDonantes {
     String nombre = nombreCompleto[0];
     String apellido = nombreCompleto[1];
     Mail mail = new Mail(campo[4]);
-    return new PersonaFisica(mail, nombre, apellido, campo[2]);
+    MedioContacto telefono = new Telefono(campo[5]);
+    return new PersonaFisica(mail, nombre, apellido, campo[2], telefono);
   }
 
   private static PersonaJuridica obtenerEntidadDonante(String linea) {
     String[] campo = linea.split(",");
     Mail mailEntidad = new Mail(campo[4]);
-    return new PersonaJuridica(campo[3], mailEntidad);
+    MedioContacto telefono = new Telefono(campo[5]);
+    return new PersonaJuridica(campo[3], mailEntidad, telefono, campo[2]);
   }
 
 }

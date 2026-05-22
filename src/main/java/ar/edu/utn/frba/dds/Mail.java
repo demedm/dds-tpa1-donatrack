@@ -9,6 +9,11 @@ public class Mail implements MedioContacto {
     }
   }
 
+  @Override
+  public String getMedioContacto() {
+    return direccionMail;
+  }
+
   public void contactar() {
 
   }

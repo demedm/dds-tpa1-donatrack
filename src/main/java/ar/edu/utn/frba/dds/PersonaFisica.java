@@ -1,22 +1,25 @@
 package ar.edu.utn.frba.dds;
 
 import java.time.LocalDate;
+import java.util.Objects;
 
 public class PersonaFisica implements Donante {
   public Mail mail;
   public String nombre;
   public String apellido;
   private int edad;
-  private String genero;
+  private Genero genero;
+  public Telefono telefonoContacto;
   public String direccionActual;
-  private String documentoIdentidad;  // algo mejor que esta forma
+  public Identificacion documentoIdentidad = null;  // algo mejor que esta forma
 
   public PersonaFisica(Mail email, String nombrePersona, String apellidoPersona,
-                       String documento) {
+                       String documento, MedioContacto telefono) {
     mail = email;
     nombre = nombrePersona;
     apellido = apellidoPersona;
-    documentoIdentidad = documento;
+    documentoIdentidad = new Identificacion(TipoDocumento.DNI, documento);
+    telefonoContacto = new Telefono(telefono.getMedioContacto());
   }
 
   public void setEdad(LocalDate fechaNacimiento) {
@@ -26,16 +29,18 @@ public class PersonaFisica implements Donante {
 
   public void setGenero(String gen) {
     var gender = gen.toUpperCase();
-    if (gen.contains("HOMBRE") || gen.contains("MUJER") || gen.contains("OTRO")) {
-      genero = gender;
+    if (gen.contains("HOMBRE")) {
+      genero = Genero.HOMBRE;
       return;
     }
-    genero = "NODEFINIDO";
+    if (gen.contains("MUJER")) {
+      genero = Genero.MUJER;
+    }
+    genero = Genero.OTRO;
   }
 
   public void setDireccion(String direccion) {
-    direccion.toUpperCase();
-    direccionActual = direccion;
+    direccionActual = direccion.toUpperCase();
   }
 
   @Override
@@ -46,6 +51,34 @@ public class PersonaFisica implements Donante {
   @Override
   public Mail getMailContacto() {
     return mail;
+  }
+
+  @Override
+  public boolean actualizarInfo(String name, String documento, MedioContacto telefono) {
+    boolean actualizado = false;
+    if (!(Objects.equals(nombre, name))) {
+      nombre = name;
+      actualizado = true;
+    }
+    if (!(Objects.equals(documentoIdentidad.nroDocumento, documento))) {
+      documentoIdentidad.nroDocumento = documento;
+      actualizado = true;
+    }
+    if (!(Objects.equals(telefonoContacto.nroTelefono, telefono.getMedioContacto()))) {
+      telefonoContacto.nroTelefono = telefonoContacto.getMedioContacto();
+      actualizado = true;
+    }
+    return actualizado;
+  }
+
+  @Override
+  public Identificacion getDocumento() {
+    return documentoIdentidad;
+  }
+
+  @Override
+  public Telefono getTelefonoContacto() {
+    return telefonoContacto;
   }
 
   public void donar() {}

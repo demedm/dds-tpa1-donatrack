@@ -7,4 +7,10 @@ public interface Donante {
 
   Mail getMailContacto();
 
+  boolean actualizarInfo(String nombre, String documento, MedioContacto telefono);
+
+  Identificacion getDocumento();
+
+  Telefono getTelefonoContacto();
+
 }
