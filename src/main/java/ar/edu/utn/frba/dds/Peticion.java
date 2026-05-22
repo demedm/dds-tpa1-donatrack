@@ -4,20 +4,20 @@ public class Peticion {
   private String subclase;
   private int cantidad;
 
-  public Peticion(String subclase, int cantidad){
+  public Peticion(String subclase, int cantidad) {
     this.subclase = subclase;
     this.cantidad = cantidad;
   }
 
-  public String getSubclase(){
+  public String getSubclase() {
     return subclase;
   }
 
-  public int getCantidad(){
+  public int getCantidad() {
     return cantidad;
   }
 
-  public void setCantidad(int cantidad){
-    this.cantidad=cantidad;
+  public void setCantidad(int cantidad) {
+    this.cantidad = cantidad;
   }
 }

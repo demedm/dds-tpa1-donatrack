@@ -8,10 +8,10 @@ public class PersonaFisica {
   private int edad;
   private String genero;
   public String direccionActual;
-  private char documentoIdentidad[];  // algo mejor que esta forma
+  private char[] documentoIdentidad;  // algo mejor que esta forma
 
-  public PersonaFisica(Mail email, String nombre, String apellido, LocalDate fechaNacimiento, char documento[], String gen, String direccion)
-  {
+  public PersonaFisica(Mail email, String nombre, String apellido,
+                       LocalDate fechaNacimiento, char[] documento, String gen, String direccion) {
     mail = email;
     nombreCompleto = nombre + " " + apellido;
     genero = gen; // buscar forma de definir solo: hombre, mujer, otro

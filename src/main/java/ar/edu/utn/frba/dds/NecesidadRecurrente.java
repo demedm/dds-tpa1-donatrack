@@ -1,14 +1,14 @@
 package ar.edu.utn.frba.dds;
 
-public class NecesidadRecurrente extends Necesidad{
-  public int diasAVencer;
+public class NecesidadRecurrente extends Necesidad {
+  public int diasAvencer;
 
-  public  NecesidadRecurrente(int diasAVencer){
+  public NecesidadRecurrente(int diasAvencer) {
     super();
-    this.diasAVencer = diasAVencer;
+    this.diasAvencer = diasAvencer;
   }
 
-  public int getDiasAVencer(){
-    return diasAVencer;
+  public int getDiasAvencer() {
+    return diasAvencer;
   }
 }
