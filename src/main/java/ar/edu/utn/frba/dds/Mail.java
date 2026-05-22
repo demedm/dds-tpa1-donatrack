@@ -4,7 +4,7 @@ public class Mail implements MedioContacto {
   String direccionMail;
 
   public Mail(String direccionCasilla) {
-    if(direccionCasilla.contains("@") && direccionCasilla.contains(".com")) {
+    if (direccionCasilla.contains("@") && direccionCasilla.contains(".com")) {
       direccionMail = direccionCasilla;
     }
   }

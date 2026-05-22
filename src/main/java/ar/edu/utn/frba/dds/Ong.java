@@ -6,7 +6,7 @@ public class Ong extends Entidad {
   List<Donante> historialDonantes;
 
   public Ong(String razon, List<Mail> representantesMailList) {
-    super(razon, representantesMailList);
+
   }
 
 }

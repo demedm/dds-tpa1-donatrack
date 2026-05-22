@@ -1,4 +1,10 @@
 package ar.edu.utn.frba.dds;
 
-public class Donante {
+public interface Donante {
+  void donar();
+
+  String getNombre();
+
+  Mail getMailContacto();
+
 }

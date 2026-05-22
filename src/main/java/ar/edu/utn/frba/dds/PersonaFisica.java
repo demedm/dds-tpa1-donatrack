@@ -2,18 +2,20 @@ package ar.edu.utn.frba.dds;
 
 import java.time.LocalDate;
 
-public class PersonaFisica extends Donante {
+public class PersonaFisica implements Donante {
   public Mail mail;
-  public String nombreCompleto;
+  public String nombre;
+  public String apellido;
   private int edad;
   private String genero;
   public String direccionActual;
   private String documentoIdentidad;  // algo mejor que esta forma
 
-  public PersonaFisica(Mail email, String nombre, String apellido,
+  public PersonaFisica(Mail email, String nombrePersona, String apellidoPersona,
                        String documento) {
     mail = email;
-    nombreCompleto = nombre + " " + apellido;
+    nombre = nombrePersona;
+    apellido = apellidoPersona;
     documentoIdentidad = documento;
   }
 
@@ -23,9 +25,9 @@ public class PersonaFisica extends Donante {
   }
 
   public void setGenero(String gen) {
-    gen.toUpperCase();
-    if(gen.contains("HOMBRE") || gen.contains("MUJER") || gen.contains("OTRO")) {
-      genero = gen;
+    var gender = gen.toUpperCase();
+    if (gen.contains("HOMBRE") || gen.contains("MUJER") || gen.contains("OTRO")) {
+      genero = gender;
       return;
     }
     genero = "NODEFINIDO";
@@ -34,6 +36,16 @@ public class PersonaFisica extends Donante {
   public void setDireccion(String direccion) {
     direccion.toUpperCase();
     direccionActual = direccion;
+  }
+
+  @Override
+  public String getNombre() {
+    return nombre + " " + apellido;
+  }
+
+  @Override
+  public Mail getMailContacto() {
+    return mail;
   }
 
   public void donar() {}
