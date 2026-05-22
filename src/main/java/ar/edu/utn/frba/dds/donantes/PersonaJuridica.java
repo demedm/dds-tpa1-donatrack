@@ -90,8 +90,11 @@ public class PersonaJuridica extends Entidad implements Donante { //persona o do
     return telefonoContacto;
   }
 
-  public Necesidad donar() {
-    return null;
+  @Override
+  public void donar(String descripcion, String pathFoto, List<Bien> bienes) {
+    Bien nuevoBien = bienes;
+    Donacion nuevaDonacion = new Donacion(descripcion, this, bienes);
+    GestorDonaciones.agregarDonacion(nuevaDonacion);
   }
 
 }
