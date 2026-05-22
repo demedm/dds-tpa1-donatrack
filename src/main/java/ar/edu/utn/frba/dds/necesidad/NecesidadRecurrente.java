@@ -3,8 +3,8 @@ package ar.edu.utn.frba.dds.necesidad;
 public class NecesidadRecurrente extends Necesidad {
   public int diasAvencer;
 
-  public NecesidadRecurrente(int diasAvencer) {
-    super();
+public NecesidadRecurrente(EntidadBeneficiaria entidad, int diasAvencer) {
+    super(entidad);
     this.diasAvencer = diasAvencer;
   }
 
