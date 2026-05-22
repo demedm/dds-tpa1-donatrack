@@ -17,6 +17,8 @@ import java.util.Objects;
 
 public class ImporterDonantes {
 
+  static List<Donante> registroDonantes = new ArrayList<>();
+
   // info basica de contacto: documento, nombre, email, telefono
   public static void actualizarDonantes(List<Donante> registroDonantesActualizar, String filePath) {
     List<Donante> nuevosDonantes = importarDonantes(filePath);
@@ -39,7 +41,6 @@ public class ImporterDonantes {
     String fpath = filePath;
     BufferedReader reader = null;
     String linea = "";
-    List<Donante> registroDonantes = new ArrayList<>();
 
     try {
       reader = new BufferedReader(new InputStreamReader(
@@ -48,11 +49,9 @@ public class ImporterDonantes {
         Donante donante;
         if (linea.contains("HUMANA")) {
           donante = obtenerPersonaDonante(linea);
-          registroDonantes.add(donante);
         }
         if (linea.contains("JURIDICA")) {
           donante = obtenerEntidadDonante(linea);
-          registroDonantes.add(donante);
         }
 
       }
@@ -89,4 +88,17 @@ public class ImporterDonantes {
     return new PersonaJuridica(campo[3], mailEntidad, telefono, campo[2]);
   }
 
+  public boolean existeEmail(String email) {
+    return buscarPorEmail(email) != null;
+  }
+
+  public static Donante buscarPorEmail(String email) {
+
+    for (Donante donante : registroDonantes) {
+      if (donante.getMailContacto().getMedioContacto().equalsIgnoreCase(email)) {
+        return donante;
+      }
+    }
+    return null;
+  }
 }
