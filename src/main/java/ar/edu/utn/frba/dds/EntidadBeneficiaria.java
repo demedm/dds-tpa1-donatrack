@@ -26,5 +26,15 @@ public class EntidadBeneficiaria extends Entidad {
   public String getDireccion() {
     return direccion;
   }
+  
+  public void crearNecesidad(GestorNecesidades gestor, Integer diasAvencer){
+    Necesidad necesidad = new NecesidadRecurrente(this, diasAvencer);
+    gestor.agregarNecesidad(necesidad);
+  }
+
+  public void crearNecesidad(GestorNecesidades gestor){
+    Necesidad necesidad = new Necesidad(this);
+    gestor.agregarNecesidad(necesidad);
+  }
 
 }
