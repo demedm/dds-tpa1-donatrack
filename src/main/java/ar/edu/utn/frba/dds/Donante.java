@@ -12,5 +12,7 @@ public interface Donante {
   Identificacion getDocumento();
 
   Telefono getTelefonoContacto();
+  
+  public Necesidad donar();
 
 }

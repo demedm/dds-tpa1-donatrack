@@ -3,8 +3,7 @@ package ar.edu.utn.frba.dds;
 import java.util.List;
 
 public class EntidadBeneficiaria extends Entidad {
-  public String direccion;
-  private String tipo;
+  List<MedioContacto> contactosRepresentantes;
 
   public EntidadBeneficiaria(String razon, String tipoEntidad,
                              MedioContacto telefonoOrganizacion,
