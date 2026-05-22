@@ -1,27 +1,19 @@
 package ar.edu.utn.frba.dds;
 
-import java.util.ArrayList;
-import java.util.List;
+import static ar.edu.utn.frba.dds.ImporterDonantes.registroDonantes;
 
 public class RegistroDonante {
 
-  private final List<Donante> donantes = new ArrayList();
-  ImportadorDonantes importador = new ImportadorDonantes();
+  public void registrarDonante(Donante nuevoDonante) {
 
-   importador.importarDonantes("donantes.csv");
+    Donante existente = ImporterDonantes.buscarPorEmail(nuevoDonante.getMailContacto().direccionMail);
 
-if(importador.existeMail("ana@mail.com")) {
-
-    Donante d = importador.buscarPorMail("ana@mail.com");
-
-    System.out.println(d);
-  }
-  public Boolean validarUsuarioExistente(String email) {
-    return donantes.stream()
-        .anyMatch(donante -> donante.tieneEmail(email));
-  }
-
-  public void registrarUsuario(){
-
+    if(existente != null) {
+      existente.actualizarInfo(nuevoDonante.getNombre(), nuevoDonante.getDocumento().toString(), nuevoDonante.getTelefonoContacto());
+      System.out.println("Donante actualizado");
+    } else {
+      registroDonantes.add(nuevoDonante);
+      System.out.println("Nuevo donante registrado");
+    }
   }
 }
