@@ -81,6 +81,8 @@ public class PersonaFisica implements Donante {
     return telefonoContacto;
   }
 
-  public void donar() {}
+  public Necesidad donar() {
+    return null;
+  }
 
 }

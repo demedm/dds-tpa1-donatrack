@@ -1,7 +1,6 @@
 package ar.edu.utn.frba.dds;
 
 public interface Donante {
-  void donar();
 
   String getNombre();
 
@@ -13,6 +12,6 @@ public interface Donante {
 
   Telefono getTelefonoContacto();
   
-  public Necesidad donar();
+  Necesidad donar();
 
 }

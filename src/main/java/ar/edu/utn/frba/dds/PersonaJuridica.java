@@ -85,6 +85,8 @@ public class PersonaJuridica extends Entidad implements Donante { //persona o do
     return telefonoContacto;
   }
 
-  public void donar() {}
+  public Necesidad donar() {
+    return null;
+  }
 
 }

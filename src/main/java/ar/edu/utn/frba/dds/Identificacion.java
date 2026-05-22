@@ -9,4 +9,12 @@ public class Identificacion {
     nroDocumento = nro;
   }
 
+  public String getNroDocumento() {
+    return nroDocumento;
+  }
+
+  public TipoDocumento getTipo() {
+    return tipo;
+  }
+
 }
