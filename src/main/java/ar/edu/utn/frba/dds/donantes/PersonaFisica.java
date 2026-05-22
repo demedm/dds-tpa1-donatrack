@@ -85,8 +85,11 @@ public class PersonaFisica implements Donante {
     return telefonoContacto;
   }
 
-  public Necesidad donar() {
-    return null;
+  @Override
+  public void donar(String descripcion, String pathFoto, List<Bien> bienes) {
+    Bien nuevoBien = bienes;
+    Donacion nuevaDonacion = new Donacion(descripcion, this, bienes);
+    GestorDonaciones.agregarDonacion(nuevaDonacion);
   }
 
 }
