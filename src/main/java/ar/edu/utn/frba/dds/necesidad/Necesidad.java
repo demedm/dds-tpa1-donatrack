@@ -7,6 +7,10 @@ public class Necesidad {
   private String estado = "preparacion";
   public List<Peticion> peticiones = new ArrayList<>();
 
+  public Necesidad(EntidadBeneficiaria entidad){
+    this.entidad=entidad;
+  }
+
   public boolean estaPreparado() {
     return estado.equals("listo");
   }
