@@ -1,6 +1,6 @@
 package ar.edu.utn.frba.dds.necesidad;
 
-import ar.edu.utn.frba.dds.bienes.Bien;
+import ar.edu.utn.frba.dds.Bienes.Bien;
 
 import java.util.ArrayList;
 import java.util.List;

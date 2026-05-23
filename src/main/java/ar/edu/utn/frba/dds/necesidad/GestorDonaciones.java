@@ -1,8 +1,8 @@
 package ar.edu.utn.frba.dds.necesidad;
 
-import ar.edu.utn.frba.dds.bienes.Bien;
-import ar.edu.utn.frba.dds.bienes.Donacion;
-import ar.edu.utn.frba.dds.bienes.EstadoDonacion;
+import ar.edu.utn.frba.dds.Bienes.Bien;
+import ar.edu.utn.frba.dds.Bienes.Donacion;
+import ar.edu.utn.frba.dds.Bienes.EstadoDonacion;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -20,6 +20,7 @@ public class GestorDonaciones {
         .flatMap(d->d.getBienes().stream())
         .filter(b->b.getSubcategoria().equals(subcategoria))
         .collect(Collectors.toList());
+
     List<Bien> bienesAsignados = new ArrayList<>();
     int restante = cantidad;
     for (Bien bien : bienesFiltrrados) {

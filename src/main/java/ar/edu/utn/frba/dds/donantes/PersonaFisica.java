@@ -1,12 +1,12 @@
 package ar.edu.utn.frba.dds.donantes;
 
-import ar.edu.utn.frba.dds.bienes.Bien;
-import ar.edu.utn.frba.dds.bienes.Donacion;
+import ar.edu.utn.frba.dds.Bienes.Bien;
+import ar.edu.utn.frba.dds.Bienes.Donacion;
 import ar.edu.utn.frba.dds.medioscontacto.Mail;
 import ar.edu.utn.frba.dds.medioscontacto.MedioContacto;
 import ar.edu.utn.frba.dds.medioscontacto.Telefono;
 import ar.edu.utn.frba.dds.necesidad.GestorDonaciones;
-import ar.edu.utn.frba.dds.necesidad.Necesidad;
+
 import java.time.LocalDate;
 import java.util.List;
 import java.util.Objects;

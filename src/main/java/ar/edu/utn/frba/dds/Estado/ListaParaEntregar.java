@@ -1,4 +1,7 @@
-package ar.edu.utn.frba.dds;
+package ar.edu.utn.frba.dds.Estado;
+
+import ar.edu.utn.frba.dds.Bienes.Donacion;
+
 public class ListaParaEntregar implements EstadoDonacion {
 
   @Override

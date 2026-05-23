@@ -1,4 +1,8 @@
-package ar.edu.utn.frba.dds;
+package ar.edu.utn.frba.dds.Estado;
+
+import ar.edu.utn.frba.dds.Bienes.Donacion;
+import ar.edu.utn.frba.dds.EstadoDonacion;
+import ar.edu.utn.frba.dds.ListaParaEntregar;
 
 public class AsignacionRealizada implements EstadoDonacion {
 

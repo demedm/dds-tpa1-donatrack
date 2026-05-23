@@ -1,4 +1,4 @@
-package ar.edu.utn.frba.dds.bienes;
+package ar.edu.utn.frba.dds.Bienes;
 
 import java.util.List;
 

@@ -1,8 +1,13 @@
-package ar.edu.utn.frba.dds;
-public class EnDeposito implements EstadoDonacion{
+package ar.edu.utn.frba.dds.Estado;
+
+import ar.edu.utn.frba.dds.Bienes.Donacion;
+import ar.edu.utn.frba.dds.EstadoDonacion;
+
+public class EnDeposito implements EstadoDonacion {
 
   @Override
   public void asignar(Donacion unaDonacion) {
+
     unaDonacion.setEstado(new AsignacionRealizada());
   }
 
